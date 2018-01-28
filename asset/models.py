@@ -39,7 +39,7 @@ class asset(models.Model):
 
     is_active = models.BooleanField(default=True, verbose_name=('是否启用'))
     ps = models.CharField(max_length=1024,verbose_name="备注",null=True,blank=True)
-    file = models.FileField(upload_to = '%Y%m%d{}'.format(random.randint(0,99999)),verbose_name="文件",null=True,blank=True,default=None)
+    file = models.FileField(upload_to = 'assets/%Y%m%d{}'.format(random.randint(0,99999)),verbose_name="文件",null=True,blank=True,default=None)
 
     ctime= models.DateTimeField(auto_now_add=True,null=True,verbose_name='创建时间',blank=True)
     utime = models.DateTimeField(auto_now=True, null=True,verbose_name='更新时间',blank=True)
@@ -75,7 +75,7 @@ class   data_centers(models.Model):
 class  system_users(models.Model):
 
     name = models.CharField(max_length=255, unique=True,verbose_name='名称')
-    username = models.CharField(max_length=64,null=True,blank=True, verbose_name=('登陆用户'))
+    username = models.CharField(max_length=64,null=True,blank=True, verbose_name=('登陆用户'),default='root')
     password = models.CharField(max_length=255, blank=True,null=True,verbose_name=('登陆密码'))
     product_line = models.ForeignKey(to=Group, to_field='id', on_delete=models.SET_NULL, verbose_name='产品线',null=True)
     ps = models.CharField(max_length=1024,verbose_name="备注",null=True,blank=True)
