@@ -53,7 +53,6 @@ INSTALLED_APPS = [
     'xadmin',
     'crispy_forms',
     'reversion',
-    "xplugin_guardian",
 ]
 
 MIDDLEWARE = [
@@ -160,7 +159,7 @@ DATE_FORMAT = 'Y-m-d'
 
 
 STATIC_URL = '/static/'
-STATIC_ROOT = '/static/'
+# STATIC_ROOT = '/opt/autoops/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
